@@ -28,7 +28,10 @@ module.exports = {
         blue: 'linear-gradient(308.16deg, #1400FF 15.36%, #72AAFF 84.52%)',
         'blue-alt':
           'linear-gradient(90.36deg, #4710C1 3.28%, #7857FF 50.58%, #819BFD 96.22%)',
-        pink: ' linear-gradient(313.21deg, #FC00C4 16.17%, #FF8CE6 87.96%)',
+        pink: 'linear-gradient(313.21deg, #FC00C4 16.17%, #FF8CE6 87.96%)',
+        purple:
+          'linear-gradient(263.46deg, #00315F 26.52%, #40137A 64.67%, #7A1363 93.96%)',
+        'hero-pattern': "url('/public/bg-user.png')",
       },
 
       fontSize: {

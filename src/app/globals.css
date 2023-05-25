@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .bg-purple-top {
+    position: absolute;
+    left: -38.65%;
+    right: -41.56%;
+    top: 70%;
+    bottom: -49.33%;
+    background: linear-gradient( 260.39deg, #00315f -3.36%, #40137a 51.91%, #7a1363 94.34% );
+    opacity: 0.85;
+    filter: blur(300.069px);
+  }
+
+  .bg-purple-mid {
+    position: absolute;
+    left: -60%;
+    right: -60%;
+    top: 50%;
+    background: linear-gradient( 127deg, #00315f -4.93%, #40137a 50.35%, #7a1363 78.88% );
+    opacity: 0.8;
+    filter: blur(300.069px);
+    bottom: 0;
+  }
+
+  .bg-purple-bottom {
+    position: absolute;
+    left: 46.87%;
+    right: 0;
+    top: -17.99%;
+    bottom: -65.42%;
+    background: linear-gradient(142deg, #00305c -6.96%, #40137a 68.31%);
+    opacity: 0.8;
+    filter: blur(125.476px);  
+  }
+}
