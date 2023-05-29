@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h3 align="center">hbo clone</h3>
 
-## Getting Started
+---
+<p align="center">
+    <img width=200px height=50%
+        src="https://user-images.githubusercontent.com/23082238/241808803-80b37333-6965-4a86-94a2-96ab9972f559.png"
+        alt="HBO Clone | Select User">
+    <img width=100% height=50%
+        src="https://user-images.githubusercontent.com/23082238/241809033-edc0da72-ae68-44af-b266-5b73522724f1.png"
+        alt="HBO Clone | Dashboard">
 
-First, run the development server:
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
+<p align="center"> HBO Redesign
+    <br>
+</p>
+
+## Content
+
+- [About](#about)
+- [Tools](#tools)
+- [Author](#author)
+
+## About <a name="about"></a>
+
+Redesign HBO web app consuming tmdb api.
+
+### Requirements
+
+- NodeJS
+- NextJS 13
+- Internet (for documentation)
+- VSCode
+
+### Installation
+
+Clone this repository
+
+```
+git clone https://github.com/andeilsongf/hbo-clone.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Get inside the folder project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd hbo-clone
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run Project
 
-## Learn More
+```
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Tools <a name="tools"></a>
+- [NodeJS](https://nodejs.org/en) 
+- [NextJS](https://nextjs.org/) - Framework for Web
+- [TailwindCSS](https://tailwindcss.com/) - CSS in JS
+- [PostCSS](https://postcss.org/) - CSS in JS
+- [ESLint](https://eslint.org/)
+- [Typescript](https://www.typescriptlang.org/) - Superset Javascript
+- [Axios](https://axios-http.com/docs/intro) - API Fetch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author <a name="author"></a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [@andeilsongf](https://github.com/andeilsongf)
