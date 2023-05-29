@@ -1,16 +1,15 @@
-import { randomUUID } from 'crypto'
 import avatarMale from '../../assets/male.jpg'
 import avatarFemale from '../../assets/female.jpg'
 
 const userDATA = [
   {
-    id: randomUUID(),
+    id: 1,
     image: avatarMale,
     name: 'Andeilson',
     gender: 'Male',
   },
   {
-    id: randomUUID(),
+    id: 2,
     image: avatarFemale,
     name: 'Giovanna',
     gender: 'Female',

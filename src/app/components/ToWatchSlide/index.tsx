@@ -23,13 +23,13 @@ export default function ToWatchSlide({
   ...rest
 }: toWatchProps) {
   return (
-    <div className="">
+    <div className="flex-shrink-0">
       <div className="relative w-60">
         <Image
           src={thumbnail}
           width={width}
           height={height}
-          alt="Title"
+          alt={name!}
           className="w-full"
           style={{
             minHeight: height,

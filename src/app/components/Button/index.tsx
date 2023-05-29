@@ -8,7 +8,7 @@ type ButtonProps = {
 export default function Button({ title, backgroundColor }: ButtonProps) {
   return (
     <button
-      className="h-[45px] w-[210px] rounded-full"
+      className="z-10 h-[45px] w-[210px] rounded-full"
       style={{
         background: backgroundColor,
       }}

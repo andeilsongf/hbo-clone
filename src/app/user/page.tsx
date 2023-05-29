@@ -1,8 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import logoSvg from '../../assets/logo.svg'
-import userDATA from './data'
 import UserCircle from '../components/UserCircle'
 import Button from '../components/Button'
+
+import johnSnow from '../../assets/male.jpg'
 
 export default function User() {
   return (
@@ -17,9 +20,7 @@ export default function User() {
         </div>
 
         <div className="flex gap-20">
-          {userDATA.map((item) => (
-            <UserCircle key={item.id} name={item.name} image={item.image.src} />
-          ))}
+          <UserCircle key={1} name="Andeilson" image={johnSnow.src} />
         </div>
 
         <div className="flex flex-col items-center justify-center">

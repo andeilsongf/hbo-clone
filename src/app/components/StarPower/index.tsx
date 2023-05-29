@@ -15,14 +15,15 @@ export default function StarPower({ name, actorImg }: StarPowerProps) {
         alt={name}
         className="relative"
       />
-      <div className="absolute bottom-6 left-2 flex flex-col">
+      <div className="absolute bottom-6 left-2 z-50 flex flex-col">
         <span className="text-base uppercase tracking-wide text-white">
           featuring
         </span>
-        <h1 className="text-lg font-bold uppercase tracking-wide text-golden">
+        <span className="text-lg font-bold uppercase tracking-wide text-golden">
           {name}
-        </h1>
+        </span>
       </div>
+      <div className="bg-b-to-t" />
     </div>
   )
 }

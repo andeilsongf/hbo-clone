@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import logoSvg from '../../../assets/logo.svg'
-import { ListMinus } from 'lucide'
+import { ListMinus } from 'lucide-react'
 
 export default function Header() {
   return (
