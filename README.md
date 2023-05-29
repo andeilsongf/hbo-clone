@@ -2,17 +2,17 @@
 
 ---
 <p align="center">
-    <img width=200px height=50%
+    <img width=50% height=50%
         src="https://user-images.githubusercontent.com/23082238/241808803-80b37333-6965-4a86-94a2-96ab9972f559.png"
         alt="HBO Clone | Select User">
-    <img width=100% height=50%
+    <img width=50% height=50%
         src="https://user-images.githubusercontent.com/23082238/241809033-edc0da72-ae68-44af-b266-5b73522724f1.png"
         alt="HBO Clone | Dashboard">
 
 </p>
 
 
-<p align="center"> HBO Redesign
+<p align="center"> HBO Clone
     <br>
 </p>
 
@@ -24,7 +24,7 @@
 
 ## About <a name="about"></a>
 
-Redesign HBO web app consuming tmdb api.
+HBO Clone web app consuming tmdb api.
 
 ### Requirements
 
