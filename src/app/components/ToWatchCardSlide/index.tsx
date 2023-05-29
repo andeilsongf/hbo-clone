@@ -12,10 +12,11 @@ export default function ToWatchCardSlide({ name, image }: CardSlideProps) {
       width={310}
       height={310}
       alt={name}
-      style={{
-        minHeight: 310,
-        minWidth: 310,
-      }}
+      // className="w-8/12"
+      // style={{
+      //   minHeight: 310,
+      //   minWidth: 310,
+      // }}
       priority
     />
   )

@@ -16,7 +16,7 @@ export default function User() {
       <section className="z-10 flex h-screen w-full flex-col items-center justify-between py-10">
         <div className="flex flex-col items-center">
           <Image src={logoSvg} width={130} alt="HBO Logo" className="mb-8" />
-          <h1 className="text-2xl text-white">Who is Watching?</h1>
+          <h1 className="text-center text-2xl text-white">Who is Watching?</h1>
         </div>
 
         <div className="flex gap-20">
@@ -24,7 +24,7 @@ export default function User() {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <div className="flex gap-8">
+          <div className="flex flex-col gap-8 xl:flex-row">
             <Button title="Adult" backgroundColor="rgba(255, 255, 255, .2)" />
             <Button title="Kid" backgroundColor="rgba(255, 255, 255, .2)" />
           </div>
