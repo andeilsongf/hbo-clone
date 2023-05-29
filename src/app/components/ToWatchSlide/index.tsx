@@ -20,12 +20,11 @@ export default function ToWatchSlide({
   thumbnail,
   progress,
   isPrimarySection,
-  isFirst,
   ...rest
 }: toWatchProps) {
   return (
-    <div className="w-full">
-      <div className="relative">
+    <div className="">
+      <div className="relative w-60">
         <Image
           src={thumbnail}
           width={width}
@@ -37,7 +36,7 @@ export default function ToWatchSlide({
             objectFit: 'cover',
           }}
         />
-        {isFirst || !isPrimarySection ? null : (
+        {isPrimarySection ? (
           <span className="absolute bottom-4 left-2 h-2 w-11/12 rounded-full bg-white/[.2]">
             <span
               className="absolute h-2 rounded-full bg-blue-alt"
@@ -46,17 +45,11 @@ export default function ToWatchSlide({
               }}
             ></span>
           </span>
-        )}
+        ) : null}
       </div>
       {isPrimarySection ? (
         <div className="mt-2 flex flex-col gap-2">
-          {isFirst ? (
-            <span className="text-xs font-bold text-gray-200">
-              YOUR NEXT EPISODE
-            </span>
-          ) : null}
           <span className="text-sm text-white">{name}</span>
-          <span className="text-sm text-gray-200">{seasonEpisode}</span>
         </div>
       ) : null}
     </div>

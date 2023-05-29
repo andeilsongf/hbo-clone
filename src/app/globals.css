@@ -8,6 +8,13 @@ body {
 }
 
 @layer components {
+
+  .gradient-text {
+    background-image: linear-gradient(#f3ec78, #af4261);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .bg-purple-top {
     position: absolute;
     left: -38.65%;

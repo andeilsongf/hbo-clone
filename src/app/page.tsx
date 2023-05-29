@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { ChevronRight, ListMinus, Play, Search } from 'lucide-react'
 
@@ -11,10 +13,122 @@ import gossipGirl from '../assets/gossip-girl.png'
 import Button from './components/Button'
 import ToWatchSlide from './components/ToWatchSlide'
 import ToWatchCardSlide from './components/ToWatchCardSlide'
-import showData from './components/ToWatchSlide/data'
-import showDataCard from './components/ToWatchCardSlide/data'
+import { useEffect, useState } from 'react'
+
+import GenerateProgress from './services/generateProgress'
+
+import { MovieDTO } from '@/dtos/MovieDTO'
+import { TVShowDTO } from '@/dtos/TVShowDTO'
+import api from './services/api'
+import { ActorDTO } from '@/dtos/ActorDTO'
+import StarPower from './components/StarPower'
 
 export default function Home() {
+  const [topMovies, setTopMovies] = useState<MovieDTO[]>([])
+  const [trendings, setTrending] = useState<MovieDTO[]>([])
+  const [airToday, setAiringToday] = useState<TVShowDTO[]>([])
+  const [topTvShows, setTopTvShows] = useState<TVShowDTO[]>([])
+  const [actors, setActors] = useState<ActorDTO[]>([])
+  const [fantasiesMovies, setFantasiesMovies] = useState<MovieDTO[]>([])
+
+  const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH
+
+  useEffect(() => {
+    async function fetchAiringToday() {
+      try {
+        const response = await api.get('/tv/airing_today?language=en-US&page=1')
+        setAiringToday(response.data.results)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log('Loaded')
+      }
+    }
+
+    fetchAiringToday()
+  }, [])
+
+  useEffect(() => {
+    async function fetchTrendingAll() {
+      try {
+        const response = await api.get('/trending/all/day?language=en-US')
+        setTrending(response.data.results)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log('Loaded')
+      }
+    }
+
+    fetchTrendingAll()
+  }, [])
+
+  useEffect(() => {
+    async function fetchTopMovies() {
+      try {
+        const response = await api.get('/movie/top_rated?language=en-US&page=1')
+        console.log(response.data.results)
+        setTopMovies(response.data.results)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log('Loaded')
+      }
+    }
+
+    fetchTopMovies()
+  }, [])
+
+  useEffect(() => {
+    async function fetchTopTvShows() {
+      try {
+        const response = await api.get('/tv/top_rated?language=en-US&page=1')
+        console.log(response.data.results)
+        setTopTvShows(response.data.results)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log('Loaded')
+      }
+    }
+
+    fetchTopTvShows()
+  }, [])
+
+  useEffect(() => {
+    async function fetchActors() {
+      try {
+        const response = await api.get('/person/popular?language=en-US&page=1')
+        console.log(response.data.results)
+        setActors(response.data.results)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log('Loaded')
+      }
+    }
+
+    fetchActors()
+  }, [])
+
+  useEffect(() => {
+    async function fetchFantasyMovies() {
+      try {
+        const response = await api.get(
+          '/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=14',
+        )
+        console.log(response.data.results)
+        setFantasiesMovies(response.data.results)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log('Loaded')
+      }
+    }
+
+    fetchFantasyMovies()
+  }, [])
+
   return (
     <main className="flex w-full flex-col overflow-y-auto">
       <header className="absolute z-10 flex w-full flex-row items-center justify-between px-16 py-6 ">
@@ -34,7 +148,7 @@ export default function Home() {
           <span className="text-base font-bold text-white">Andeilson</span>
         </div>
       </header>
-      <div className="w-full">
+      <div className="relative w-full">
         <Image
           src={featureTvShowImage}
           alt="Friends Cover"
@@ -70,14 +184,13 @@ export default function Home() {
           <ChevronRight color="#fff" size={10} />
         </span>
         <div className="z-10 flex w-full gap-4 overflow-hidden">
-          {showData.map((item) => (
+          {airToday.map((tvshow) => (
             <ToWatchSlide
-              name={item.name}
-              progress={item.progress}
-              seasonEpisode={item.seasonEpisode}
-              thumbnail={item.thumbnail.src}
-              key={item.id}
-              isFirst={item.isFirst}
+              name={tvshow.name}
+              thumbnail={`${imagePath}${tvshow.poster_path}`}
+              key={tvshow.id}
+              progress={GenerateProgress()}
+              isPrimarySection={true}
             />
           ))}
         </div>
@@ -92,11 +205,11 @@ export default function Home() {
           <ChevronRight color="#fff" size={10} />
         </span>
         <div className="z-10 flex w-full gap-4 overflow-hidden">
-          {showDataCard.map((item) => (
+          {trendings.map((trending) => (
             <ToWatchCardSlide
-              name={item.name}
-              image={item.thumbnail.src}
-              key={item.id}
+              name={trending.name}
+              image={`${imagePath}${trending.poster_path}`}
+              key={trending.id}
             />
           ))}
         </div>
@@ -108,12 +221,13 @@ export default function Home() {
           <ChevronRight color="#fff" size={10} />
         </span>
         <div className="z-10 flex w-full gap-4 overflow-hidden">
-          {showData.map((item) => (
+          {topMovies.map((movie) => (
             <ToWatchSlide
+              name={movie.title}
               width={200}
               height={300}
-              thumbnail={item.thumbnail.src}
-              key={item.id}
+              thumbnail={`${imagePath}${movie.poster_path}`}
+              key={movie.id}
               isPrimarySection={false}
             />
           ))}
@@ -137,12 +251,12 @@ export default function Home() {
           />
         </span>
         <div className="z-10 flex w-full gap-4 overflow-hidden">
-          {showData.map((item) => (
+          {topTvShows.map((topTvShow) => (
             <ToWatchSlide
               width={200}
               height={300}
-              thumbnail={item.thumbnail.src}
-              key={item.id}
+              thumbnail={`${imagePath}${topTvShow.poster_path}`}
+              key={topTvShow.id}
               isPrimarySection={false}
             />
           ))}
@@ -155,13 +269,11 @@ export default function Home() {
           <ChevronRight color="#fff" size={10} />
         </span>
         <div className="z-10 flex w-full gap-4 overflow-hidden">
-          {showData.map((item) => (
-            <ToWatchSlide
-              width={280}
-              height={422}
-              thumbnail={item.thumbnail.src}
-              key={item.id}
-              isPrimarySection={false}
+          {actors.map((actor) => (
+            <StarPower
+              actorImg={`${imagePath}${actor.profile_path}`}
+              key={actor.id}
+              name={actor.name}
             />
           ))}
         </div>
@@ -178,12 +290,12 @@ export default function Home() {
           <ChevronRight color="#fff" size={10} />
         </span>
         <div className="z-10 flex w-full gap-4 overflow-hidden">
-          {showData.map((item) => (
+          {fantasiesMovies.map((fantasyMovie) => (
             <ToWatchSlide
               width={200}
               height={300}
-              thumbnail={item.thumbnail.src}
-              key={item.id}
+              thumbnail={`${imagePath}${fantasyMovie.poster_path}`}
+              key={fantasyMovie.id}
               isPrimarySection={false}
             />
           ))}
